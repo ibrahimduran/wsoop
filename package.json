@@ -1,0 +1,35 @@
+{
+  "name": "wsoop",
+  "version": "0.0.1",
+  "description": "Framework for developing effecient WebSocket server applications.",
+  "main": "build/index.js",
+  "types": "./build/index.d.ts",
+  "typescript.tsdk": "./build",
+  "scripts": {
+    "build": "tsc",
+    "dev-env": "tsc --watch",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ibrahimduran/wsoop.git"
+  },
+  "keywords": [
+    "socket",
+    "websocket",
+    "framework"
+  ],
+  "author": "İbrahim Duran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ibrahimduran/wsoop/issues"
+  },
+  "homepage": "https://github.com/ibrahimduran/wsoop#readme",
+  "devDependencies": {
+    "typescript": "^2.2.1"
+  },
+  "dependencies": {
+    "debug": "^2.6.1",
+    "socket.io": "^1.7.3"
+  }
+}

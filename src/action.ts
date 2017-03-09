@@ -1,3 +1,8 @@
+export interface PlainAction {
+	event: string,
+	callback: (socket: any) => any;
+}
+
 export interface ActionCallbacks {
 	callback: () => any;
 }
@@ -34,5 +39,23 @@ export default class Action {
 		this._children.push(action as Action);
 
 		return this;
+	}
+
+	public toArray(prefix = []) {
+		var events = [];
+
+		if (this.event) {
+			prefix.push(this.event);
+
+			if (this.callbacks.callback) {
+				events.push({event:prefix.join(':'),callback:this.callbacks.callback});
+			}
+		}
+		
+		this.children.forEach((child) => {
+			events = events.concat(child.toArray([].concat(prefix)));
+		});
+
+		return events;
 	}
 }

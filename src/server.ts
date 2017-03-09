@@ -20,12 +20,12 @@ class Server {
 		this._io.on('connection', (socket) => {
 			this._debug(`Socket connected from ${socket.request.connection.remoteAddress}`)
 
-			this.getPlainActions(action).forEach(plain => {
+			action.toArray().forEach(plain => {
 				this._debug(`Binding action to the server: ${plain.event}`);
 				
-				socket.on(plain.event, () => {
-					this._debug(`Socket request from ${socket.request.connection.remoteAddress}: ${plain.event}`)
-					plain.callback.apply(this, socket);
+				socket.on(plain.event, (data) => {
+					this._debug(`Socket request from ${socket.request.connection.remoteAddress}: ${plain.event}`);
+					plain.callback.call(this, socket, data);
 				});
 			});
 
@@ -40,24 +40,6 @@ class Server {
 	public listen(port: number) {
 		this._debug(`WebSocket server listening on *:${port}`)
 		this._io.listen(port);
-	}
-
-	private getPlainActions(action: Action, prefix: string[] = []) {
-		var events = [];
-
-		if (action.event) {
-			prefix.push(action.event);
-
-			if (action.callbacks.callback) {
-				events.push({event:prefix.join(':'),callback:action.callbacks.callback});
-			}
-		}
-		
-		action.children.forEach((child) => {
-			events = events.concat(this.getPlainActions(child, [].concat(prefix)));
-		});
-
-		return events;
 	}
 }
 

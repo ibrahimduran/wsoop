@@ -21,8 +21,8 @@ app.listen(5000);
 Add actions (routes) to the application.
 ```js
 var myAction = new wsoop.Action()
-  .add('ping', () => {
-    // pong!
+  .add('hello', () => {
+    // world!
   });
 
 app.add(myAction);

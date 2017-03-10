@@ -7,7 +7,7 @@ export interface ActionCallbacks {
 	callback: () => any;
 }
 
-export default class Action {
+export class Action {
 	private _children: Action[] = [];
 	private _event: string;
 	private _callbacks: ActionCallbacks = {

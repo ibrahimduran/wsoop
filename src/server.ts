@@ -1,7 +1,7 @@
 import * as SocketIO from 'socket.io';
 import * as Debug from 'debug';
 
-import Action from './action';
+import { Action } from './action';
 
 interface ServerOptions {
 

@@ -21,7 +21,7 @@ class Server {
 			this._debug(`Socket connected from ${socket.request.connection.remoteAddress}`)
 
 			action.toArray().forEach(plain => {
-				this._debug(`Binding action to the server: ${plain.event}`);
+				this._debug(`Binding action to the socket: ${plain.event}`);
 				
 				socket.on(plain.event, (data) => {
 					this._debug(`Socket request from ${socket.request.connection.remoteAddress}: ${plain.event}`);

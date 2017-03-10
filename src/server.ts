@@ -16,7 +16,11 @@ class Server {
 		this._debug = Debug('ws:server');
 	}
 
-	public add(action: Action): this {
+	public add(action: Action|Function): this {
+		if (typeof action === 'function') {
+			action = Action.fromES6Class(action);
+		}
+
 		var actionArray = action.toArray();
 
 		this._io.on('connection', (socket) => {

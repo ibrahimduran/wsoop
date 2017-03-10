@@ -17,10 +17,12 @@ class Server {
 	}
 
 	public add(action: Action): this {
+		var actionArray = action.toArray();
+
 		this._io.on('connection', (socket) => {
 			this._debug(`Socket connected from ${socket.request.connection.remoteAddress}`)
 
-			action.toArray().forEach(plain => {
+			actionArray.forEach(plain => {
 				this._debug(`Binding action to the socket: ${plain.event}`);
 				
 				socket.on(plain.event, (data) => {

@@ -48,7 +48,7 @@ export class Action {
 
 		// add('foo', MyAction | ()=>any)
 		if (typeof action === 'string' && typeof callback === 'function') {
-			if (callback.prototype.__boundSocketEvents) { // ES6 class
+			if (callback.prototype && callback.prototype.__boundSocketEvents) { // ES6 class
 				this._children.push(new Action(action).add(Action.fromES6Class(callback)))
 			} else { // Anonymous function
 				this._children.push(new Action(action, callback));

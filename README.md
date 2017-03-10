@@ -34,6 +34,23 @@ You can directly import `Server` and `Action` class from wsoop package.
 import { Server, Action } from 'wsoop';
 ```
 
+### Class and Decorators
+You can use ES2015 classes and decorators to define actions.
+```js
+import { bind } from 'wsoop';
+
+class MyAction {
+  @bind('message')
+  onMessage() {
+    //
+    // New message from socket
+    // TODO: do some stuff here
+    //
+  }
+}
+```
+More examples will be avaiable soon...
+
 ## Verbose
 You can set environment variable to display verbose log messages.
 ```sh

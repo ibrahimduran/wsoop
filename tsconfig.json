@@ -5,6 +5,7 @@
 		"noImplicitAny": false,
 		"sourceMap": true,
 		"declaration": true,
+		"experimentalDecorators": true,
 		"outDir": "build"
 	},
 	"include": [

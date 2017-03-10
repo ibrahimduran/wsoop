@@ -1,4 +1,5 @@
 # wsoop
+[![npm](https://img.shields.io/npm/v/wsoop.svg)](https://www.npmjs.com/package/wsoop) [![Travis](https://img.shields.io/travis/ibrahimduran/wsoop.svg)](https://travis-ci.org/ibrahimduran/wsoop) [![Coverage Status](https://coveralls.io/repos/github/ibrahimduran/wsoop/badge.svg?branch=master)](https://coveralls.io/github/ibrahimduran/wsoop?branch=master)
 
 Framework for developing effecient WebSocket server applications.
 

@@ -3,3 +3,5 @@ node_js:
   - "stable"
 before_script:
   - npm run build
+after_script:
+  - npm run coveralls

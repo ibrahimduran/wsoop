@@ -1,6 +1,6 @@
 {
   "name": "wsoop",
-  "version": "0.0.3",
+  "version": "0.1.1",
   "description": "Framework for developing effecient WebSocket server applications.",
   "main": "build/index.js",
   "types": "./build/index.d.ts",

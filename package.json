@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc",
     "dev-env": "tsc --watch",
-    "test": "mocha"
+    "test": "istanbul cover -x test/**/* node_modules/mocha/bin/_mocha -- -R spec test/**/*"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/ibrahimduran/wsoop#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "socket.io-client": "^1.7.3",
     "typescript": "^2.2.1"

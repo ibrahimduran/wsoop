@@ -1,6 +1,6 @@
 {
   "name": "wsoop",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Framework for developing effecient WebSocket server applications.",
   "main": "build/index.js",
   "types": "./build/index.d.ts",
@@ -40,6 +40,7 @@
     "typescript": "^2.2.1"
   },
   "dependencies": {
+    "@types/socket.io": "^1.4.29",
     "debug": "^2.6.1",
     "socket.io": "^1.7.3"
   }

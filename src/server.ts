@@ -8,12 +8,12 @@ interface ServerOptions {
 }
 
 class Server {
-	private _io;
-	private _debug;
+	protected io: SocketIO.Server;
+	protected debug;
 
 	constructor(options: ServerOptions = {}) {
-		this._io = SocketIO();
-		this._debug = Debug('ws:server');
+		this.io = SocketIO();
+		this.debug = Debug('ws:server');
 	}
 
 	public add(action: Action|Function): this {
@@ -23,20 +23,20 @@ class Server {
 
 		var actionArray = action.toArray();
 
-		this._io.on('connection', (socket) => {
-			this._debug(`Socket connected from ${socket.request.connection.remoteAddress}`)
+		this.io.on('connection', (socket) => {
+			this.debug(`Socket connected from ${socket.request.connection.remoteAddress}`)
 
 			actionArray.forEach(plain => {
-				this._debug(`Binding action to the socket: ${plain.event}`);
+				this.debug(`Binding action to the socket: ${plain.event}`);
 				
 				socket.on(plain.event, (data) => {
-					this._debug(`Socket request from ${socket.request.connection.remoteAddress}: ${plain.event}`);
+					this.debug(`Socket request from ${socket.request.connection.remoteAddress}: ${plain.event}`);
 					plain.callback.call(this, socket, data);
 				});
 			});
 
 			socket.on('disconnect', () => {
-				this._debug(`Socket disconnected from ${socket.request.connection.remoteAddress}`)
+				this.debug(`Socket disconnected from ${socket.request.connection.remoteAddress}`)
 			});
 		});
 
@@ -44,8 +44,8 @@ class Server {
 	}
 
 	public listen(port: number) {
-		this._debug(`WebSocket server listening on *:${port}`)
-		this._io.listen(port);
+		this.debug(`WebSocket server listening on *:${port}`)
+		this.io.listen(port);
 	}
 }
 

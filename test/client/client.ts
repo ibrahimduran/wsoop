@@ -22,7 +22,7 @@ describe('server/client', function () {
 	});
 
 	it('should connect to the server', function (done) {
-		this.timeout(5000);
+		this.timeout(6000);
 		var fired = false;
 		client.add((new Action()).add(new Action('connect', () => {
 			if (!fired) {

@@ -35,12 +35,12 @@ export class Action {
 	public add(action: Function): this;
 	public add(action: string, callback: Action): this;
 	public add(action: string, callback: Function): this;
-	public add(action: (Action|string|Function), callback?): this {
+	public add(action: (Action | string | Function), callback?): this {
 		// add(MyAction)
 		if (typeof action === 'function' && !callback) {
 			this._children.push(Action.fromES6Class(action));
 		}
-		
+
 		// add(new Action(...))
 		if (typeof action === 'object' && !callback) {
 			this._children.push(action);
@@ -63,6 +63,12 @@ export class Action {
 		return this;
 	}
 
+	public reset() {
+		this._children = [];
+
+		return this;
+	}
+
 	public toArray(prefix = []) {
 		var events = [];
 
@@ -70,10 +76,10 @@ export class Action {
 			prefix.push(this.event);
 
 			if (this.callbacks.callback) {
-				events.push({event:prefix.join(':'),callback:this.callbacks.callback});
+				events.push({ event: prefix.join(':'), callback: this.callbacks.callback });
 			}
 		}
-		
+
 		this.children.forEach((child) => {
 			events = events.concat(child.toArray([].concat(prefix)));
 		});
@@ -118,7 +124,7 @@ export function child(action: Action);
 export function child(action: Function);
 export function child(action: string, callback: Action);
 export function child(action: string, callback: Function);
-export function child(action: (Action|string|Function), callback?) {
+export function child(action: (Action | string | Function), callback?) {
 	var args = Array.prototype.slice.call(arguments);
 
 	return function (constructor: Function) {

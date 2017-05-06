@@ -1,2 +1,3 @@
 export * from './server';
-export * from './action';
+export * from './client';
+export * from './actions';

@@ -1,7 +1,7 @@
 # wsoop
-[![npm](https://img.shields.io/npm/v/wsoop.svg)](https://www.npmjs.com/package/wsoop) [![Travis](https://img.shields.io/travis/ibrahimduran/wsoop.svg)](https://travis-ci.org/ibrahimduran/wsoop) [![Coverage Status](https://coveralls.io/repos/github/ibrahimduran/wsoop/badge.svg?branch=master)](https://coveralls.io/github/ibrahimduran/wsoop?branch=master)
+[![npm version](https://badge.fury.io/js/wsoop.svg)](https://badge.fury.io/js/wsoop) [![dependencies Status](https://david-dm.org/ibrahimduran/wsoop/status.svg)](https://david-dm.org/ibrahimduran/wsoop) [![devDependencies Status](https://david-dm.org/ibrahimduran/wsoop/dev-status.svg)](https://david-dm.org/ibrahimduran/wsoop?type=dev) [![Travis](https://img.shields.io/travis/ibrahimduran/wsoop.svg)](https://travis-ci.org/ibrahimduran/wsoop) [![Coverage Status](https://coveralls.io/repos/github/ibrahimduran/wsoop/badge.svg?branch=master)](https://coveralls.io/github/ibrahimduran/wsoop?branch=master)
 
-Framework for developing effecient WebSocket server applications.
+Framework for developing efficient WebSocket server applications.
 
 ## Installation
 
@@ -50,7 +50,7 @@ class MyAction {
   }
 }
 ```
-More examples will be avaiable soon...
+More examples will be available soon...
 
 ## Verbose
 You can set environment variable to display verbose log messages.
